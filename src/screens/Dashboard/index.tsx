@@ -1,9 +1,44 @@
 import React from "react"
 import HighlightCard from "../../components/HighlightCard"
-import TransactionsCard from "../../components/TransactionsCard"
+import TransactionsCard, {
+    TransactionCardProps,
+} from "../../components/TransactionsCard"
 import * as S from "./styles"
 
+export interface DataListProps extends TransactionCardProps {
+    id: string
+}
+
 const Dashboard = () => {
+    const data: DataListProps[] = [
+        {
+            id: "0",
+            type: "positive",
+            title: "Desenvolvimento de site",
+            amount: "R$ 12.000,00",
+            date: "13/04/2020",
+            category: { name: "Vendas", icon: "dollar-sign" },
+        },
+
+        {
+            id: "1",
+            type: "negative",
+            title: "Hamburgueria Pizzy",
+            amount: "R$ 59,00",
+            date: "10/04/2020",
+            category: { name: "Alimentação", icon: "coffee" },
+        },
+
+        {
+            id: "2",
+            type: "negative",
+            title: "Aluguel do apartamento",
+            amount: "R$ 1.200,00",
+            date: "23/04/2020",
+            category: { name: "Vendas", icon: "shopping-bag" },
+        },
+    ]
+
     return (
         <S.Conatiner>
             <S.Header>
@@ -50,7 +85,11 @@ const Dashboard = () => {
             <S.Transactions>
                 <S.Title>Listagem</S.Title>
 
-                <TransactionsCard />
+                <S.TransactionList
+                    keyExtractor={(item) => item.id}
+                    data={data}
+                    renderItem={({ item }) => <TransactionsCard data={item} />}
+                />
             </S.Transactions>
         </S.Conatiner>
     )
