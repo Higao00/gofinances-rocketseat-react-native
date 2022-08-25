@@ -13,6 +13,7 @@ import { ThemeProvider } from "styled-components"
 import Dashboard from "./src/screens/Dashboard"
 import theme from "./src/global/styles/theme"
 import Register from "./src/screens/Register"
+import CategorySelect from "./src/screens/CategorySelect"
 
 const App = () => {
     const [fontsLoader] = useFonts({
@@ -29,6 +30,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
             {/* <Dashboard /> */}
             <Register />
+            {/* <CategorySelect /> */}
             <StatusBar style="auto" />
         </ThemeProvider>
     )
