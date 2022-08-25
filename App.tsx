@@ -1,17 +1,18 @@
-import React from 'react'
-import { StatusBar } from 'expo-status-bar'
-import AppLoading from 'expo-app-loading'
+import React from "react"
+import { StatusBar } from "expo-status-bar"
+import AppLoading from "expo-app-loading"
 
 import {
     useFonts,
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold,
-} from '@expo-google-fonts/poppins'
+} from "@expo-google-fonts/poppins"
 
-import { ThemeProvider } from 'styled-components'
-import Dashboard from './src/screens/Dashboard'
-import theme from './src/global/styles/theme'
+import { ThemeProvider } from "styled-components"
+import Dashboard from "./src/screens/Dashboard"
+import theme from "./src/global/styles/theme"
+import Register from "./src/screens/Register"
 
 const App = () => {
     const [fontsLoader] = useFonts({
@@ -26,7 +27,8 @@ const App = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Dashboard />
+            {/* <Dashboard /> */}
+            <Register />
             <StatusBar style="auto" />
         </ThemeProvider>
     )
